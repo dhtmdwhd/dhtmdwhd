@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style type="text/css">
 	#all{
 		
@@ -18,7 +17,7 @@
 			<table>
 				<tr>
 					<th>
-						아이디 : 
+						아이디asasasas : 
 					</th>
 					<td>
 						<input type="text" id="userId" class="typing">
@@ -58,6 +57,6 @@
 				loginForm.submit();
 			}
 		})
-	})	
+	})
 </script>
 </html>
