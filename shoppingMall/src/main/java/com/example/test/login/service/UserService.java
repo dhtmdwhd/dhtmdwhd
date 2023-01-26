@@ -12,9 +12,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserService{
 	@Autowired
-	UserMapper userMapper;
+	private UserMapper userMapper;
 	
-    public void getUserInfo(UserInfoVo userInfoVo){
+	public String getUserInfo(UserInfoVo userInfoVo){
     	userMapper.getUserInfo(userInfoVo);
-}
+		return null;
+	}
+	public UserInfoVo login(String userId, String userPw){
+    	
+		return userMapper.login(userId, userPw);
+    }
 }

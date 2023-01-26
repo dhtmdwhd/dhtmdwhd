@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.test.login.mapper.UserMapper">
-    <select id="getUserInfo" resultType="com.example.test.login.domain.UserInfoVo">
+    <select id="login" resultType="com.example.test.login.domain.UserInfoVo">
         SELECT * FROM shoppingUser WHERE userId = #{userId} and userPw = #{userPw}
     </select>
     
-    <insert id="registerAction" parameterType="com.example.test.login.domain.UserVo">
-        INSERT INTO nation
-            (userId, userPw, userName, userAuth, userNickname, userPhone, userAdress, userEmail, addr)
-        VALUES(#{userId}, #{userPw},#{userName}, 'user', #{userNickname}, #{userPhone}, #{userAdress}, #{userEmail}, #{addr})
+    <insert id="getUserInfo" parameterType="com.example.test.login.domain.UserInfoVo">
+        INSERT INTO shoppingUser
+            (userId, userPw, userName, userAuth, userEmail, userPhone)
+        VALUES(#{userId}, #{userPw},#{userName}, 'user', #{userEmail},  #{userPhone})
     </insert>
 </mapper>

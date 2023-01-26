@@ -21,7 +21,7 @@
 						아이디 : 
 					</th>
 					<td>
-						<input type="text" id="userId" class="typing">
+						<input type="text" id="userId" class="typing" name="userId">
 					</td>
 					<td rowspan="2">
 						<input type="button" value="로그인" id="doLogin">
@@ -32,12 +32,12 @@
 						비밀번호 : 
 					</th>
 					<td>
-						<input type="password" id="userPw" class="typing">
+						<input type="password" id="userPw" class="typing" name="userPw">
 					</td>
 				</tr>
 				<tr>
 					<td colspan="3">
-						<input type="button" value="회원가입" id="newUser">
+						<input type="button" value="회원가입" id="newUser" onclick="location.href='register'">
 					</td>
 				</tr>
 			</table>

@@ -13,12 +13,13 @@
 			return false;
 		}else{
 			f.submit();
+			return true;
 		}
 		
 	}
 </script>
 <body>
-	<form action="register" method="post">
+	<form action="registerAction" method="post">
 		<table>
 			<tr>
 				<th colspan="3">
@@ -28,37 +29,37 @@
 			<tr>
 				<th>아이디</th>
 				<td colspan="2">
-					<input type="text" id="userId">
+					<input type="text" id="userId" name="userId">
 				</td>
 			</tr>
 			<tr>
 				<th>비밀번호</th>
 				<td colspan="2">
-					<input type="password" id="userPw">
+					<input type="password" id="userPw" name="userPw">
 				</td>
 			</tr>
 			<tr>
 				<th>이름</th>
 				<td colspan="2">
-					<input type="text" id="userName">
+					<input type="text" id="userName" name="userName">
 				</td>
 			</tr>
 			<tr>
 				<th>전화번호</th>
 				<td colspan="2">
-					<input type="text" id="userPhone">
+					<input type="text" id="userPhone" name="userPhone">
 				</td>
 			</tr>
 			<tr>
 				<th>이메일</th>
 				<td colspan="2">
-					<input type="email" id="userEmail">
+					<input type="email" id="userEmail" name="userEmail">
 				</td>
 			</tr>
 			<tr>
 				
 				<td colspan="3">
-					<input type="button" id="register" value="회원가입" onclick="moveRegister(f)">
+					<input type="button" id="register" value="회원가입" onclick="moveRegister(this.form)">
 					<input type="reset" value="취소">
 				</td>
 			</tr>
