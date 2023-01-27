@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.test.login.domain.UserInfoVo;
 import com.example.test.login.service.UserService;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 
 @Controller
@@ -19,24 +20,49 @@ public class ShopperController {
 	
 	@Autowired
 	private UserService userService;
-	private final PasswordEncoder passwordEncoder;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	@GetMapping("/login")
 	public String mainPage() {
 		return "login";
 	}
 	
-	@PostMapping("/doLogin") 
-	public String login(@ModelAttribute UserInfoVo userInfoVo) {
-		String encodedPassword = passwordEncoder.encode(userInfoVo.getUserPw());
+	@RequestMapping("/doLogin") 
+	public String login(@ModelAttribute UserInfoVo userInfoVo, HttpSession session) {
+		String encodedPassword = userInfoVo.getUserPw(); 
+		String dbData = userService.findPassword(userInfoVo.getUserId()); 
 		
-		if(true == passwordEncoder.matches(encodedPassword, userInfoVo.getUserPw())){
-			UserInfoVo loginUser = userService.login(userInfoVo.getUserId(), userInfoVo.getUserPw());
-			if(loginUser == null) {
-				return "login";
-			}
+		System.out.println("encodedPassword" + encodedPassword);
+		System.out.println("dbData" + dbData);
+		
+		
+		UserInfoVo loginUser = userService.login(userInfoVo.getUserId(), userInfoVo.getUserPw());
+		
+		int cnt = 0;
+		
+		if(passwordEncoder.matches(encodedPassword, dbData)){
+			System.out.println("-----------------");
+			cnt = 1;
+			System.out.println("cnt 1이 통과해야함" + cnt);
+		}else {
+			cnt = 0;
+			System.out.println("-+++++++++++++++++++++++++++++-");
+			System.out.println("cnt 0이 통과해야함" + cnt);
 		}
-		return "login2";
+		
+		if(cnt == 1) {
+			session.setAttribute("loginUser", loginUser);
+			session.setMaxInactiveInterval(3600);
+			return "login2";
+		}else {
+			session.setAttribute("loginUser", null);
+			return "login";
+		}
+		
+		
+		
 	
 	} 
 	

@@ -6,6 +6,10 @@
         SELECT * FROM shoppingUser WHERE userId = #{userId} and userPw = #{userPw}
     </select>
     
+    <select id="findPassword" resultType="String">
+        SELECT userPw FROM shoppingUser WHERE userId = #{userId}
+    </select>
+    
     <insert id="getUserInfo" parameterType="com.example.test.login.domain.UserInfoVo">
         INSERT INTO shoppingUser
             (userId, userPw, userName, userAuth, userEmail, userPhone)

@@ -19,7 +19,9 @@ public class UserService{
 		return null;
 	}
 	public UserInfoVo login(String userId, String userPw){
-    	
 		return userMapper.login(userId, userPw);
     }
+	public String findPassword(String userId){
+		return userMapper.findPassword(userId);
+	}
 }
