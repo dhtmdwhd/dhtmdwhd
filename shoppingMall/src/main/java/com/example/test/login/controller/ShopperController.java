@@ -55,7 +55,7 @@ public class ShopperController {
 		if(cnt == 1) {
 			session.setAttribute("loginUser", loginUser);
 			session.setMaxInactiveInterval(3600);
-			return "login2";
+			return "main";
 		}else {
 			session.setAttribute("loginUser", null);
 			return "login";
