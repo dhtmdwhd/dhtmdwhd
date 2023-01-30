@@ -12,14 +12,13 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 	
-    @SuppressWarnings("deprecation")
 	@Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         return http
                 .csrf().disable()
                 .authorizeRequests()
-                .requestMatchers("/login/**" , "/login2").hasAuthority("ADMIN")
-                .requestMatchers("/**").permitAll()
+                .antMatchers("/login/**" , "/login2").hasAuthority("ADMIN")
+                .antMatchers("/**").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -36,10 +35,4 @@ public class SecurityConfig {
        return new BCryptPasswordEncoder();
     }
 
-//    protected void configure(HttpSecurity http) throws Exception {
-//       http.cors().disable()
-//          .csrf().disable()
-//          .formLogin().disable()
-//          .headers().frameOptions().disable();
-//    }
 }

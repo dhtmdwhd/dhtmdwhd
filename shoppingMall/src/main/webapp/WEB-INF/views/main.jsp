@@ -43,5 +43,6 @@
 		    		</c:forEach>
 				</tbody>
 			</table>
+			<input type="button" value="logout" id="logout">
 </body>
 </html>

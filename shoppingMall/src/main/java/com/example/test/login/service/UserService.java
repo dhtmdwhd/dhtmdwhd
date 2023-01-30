@@ -1,9 +1,12 @@
 package com.example.test.login.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.test.login.domain.UserInfoVo;
+import com.example.test.login.domain.WritingVo;
 import com.example.test.login.mapper.UserMapper;
 
 import lombok.RequiredArgsConstructor;
@@ -23,5 +26,13 @@ public class UserService{
     }
 	public String findPassword(String userId){
 		return userMapper.findPassword(userId);
+	}
+	
+	public List<WritingVo> progressNation() {
+		return userMapper.progressNation();
+	}
+	
+	public WritingVo oneNationPost(int postNo) {
+		return userMapper.oneNationPost(postNo);
 	}
 }

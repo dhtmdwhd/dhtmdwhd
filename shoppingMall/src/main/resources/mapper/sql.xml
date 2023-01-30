@@ -15,4 +15,12 @@
             (userId, userPw, userName, userAuth, userEmail, userPhone)
         VALUES(#{userId}, #{userPw},#{userName}, 'user', #{userEmail},  #{userPhone})
     </insert>
+    
+    <select id="progressNation" resultType="com.example.test.login.domain.WritingVo">
+		select *,row_number() over(order by postNo desc) as postNum from writing_tb where decide = 'Y'
+	</select>
+	
+	<select id="oneNationPost" resultType="com.example.test.login.domain.WritingVo">
+		select * from writing_tb where postNo = #{postNo}
+	</select>
 </mapper>
