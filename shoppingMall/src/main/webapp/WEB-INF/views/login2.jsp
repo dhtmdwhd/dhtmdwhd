@@ -3,13 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style type="text/css">
-	#all{
-		
-	}
-</style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	alert("아이디와 비밀번호가 일치하지 않습니다. 다시 입력해 주세요")
+</script>
 </head>
 <body>
 	<div id="all">
@@ -17,7 +15,7 @@
 			<table>
 				<tr>
 					<th>
-						아이디asasasas : 
+						아이디 : 
 					</th>
 					<td>
 						<input type="text" id="userId" class="typing">

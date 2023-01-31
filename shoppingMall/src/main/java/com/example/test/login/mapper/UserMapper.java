@@ -11,7 +11,7 @@ import com.example.test.login.domain.WritingVo;
 @Mapper
 public interface UserMapper {
 	
-	public void getUserInfo(UserInfoVo userInfoVo);
+	public void getUserInfo(UserInfoVo userInfoVo) ;
 	
 	String findPassword(String userId);
 	

@@ -17,7 +17,7 @@ public class UserService{
 	@Autowired
 	private UserMapper userMapper;
 	
-	public String getUserInfo(UserInfoVo userInfoVo){
+	public String getUserInfo(UserInfoVo userInfoVo) {
     	userMapper.getUserInfo(userInfoVo);
 		return null;
 	}

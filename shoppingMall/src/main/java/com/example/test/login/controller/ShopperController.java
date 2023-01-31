@@ -36,10 +36,6 @@ public class ShopperController {
 		String encodedPassword = userInfoVo.getUserPw(); 
 		String dbData = userService.findPassword(userInfoVo.getUserId()); 
 		
-		System.out.println("encodedPassword" + encodedPassword);
-		System.out.println("dbData" + dbData);
-		
-		
 		UserInfoVo loginUser = userService.login(userInfoVo.getUserId(), userInfoVo.getUserPw());
 		
 		int cnt = 0;
@@ -47,11 +43,9 @@ public class ShopperController {
 		if(passwordEncoder.matches(encodedPassword, dbData)){
 			System.out.println("-----------------");
 			cnt = 1;
-			System.out.println("cnt 1이 통과해야함" + cnt);
 		}else {
 			cnt = 0;
 			System.out.println("-+++++++++++++++++++++++++++++-");
-			System.out.println("cnt 0이 통과해야함" + cnt);
 		}
 		
 		if(cnt == 1) {

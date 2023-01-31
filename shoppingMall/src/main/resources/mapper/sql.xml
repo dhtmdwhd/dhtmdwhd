@@ -4,7 +4,7 @@
 <mapper namespace="com.example.test.login.mapper.UserMapper">
     <select id="login" resultType="com.example.test.login.domain.UserInfoVo">
         SELECT * FROM shoppingUser WHERE userId = #{userId} and userPw = #{userPw}
-    </select>
+    </select> 
     
     <select id="findPassword" resultType="String">
         SELECT userPw FROM shoppingUser WHERE userId = #{userId}
