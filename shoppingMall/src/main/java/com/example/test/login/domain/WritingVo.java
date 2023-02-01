@@ -26,4 +26,6 @@ public class WritingVo {
 	private String reason;
 	
 	private int postNum;
+	private int viewerNo;
+	
 }

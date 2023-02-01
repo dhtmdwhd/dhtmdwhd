@@ -20,4 +20,6 @@ public interface UserMapper {
 	public List<WritingVo> progressNation();
 	
 	public WritingVo oneNationPost(int postNo);
+
+	public int procView(int postNo, int viewerNo);
 }

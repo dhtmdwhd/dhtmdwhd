@@ -25,7 +25,7 @@
 				</thead>
 				<tbody>
 					<c:forEach var="progressNationList" items="${progressNationList }">
-						<tr onclick="location.href='oneProgressNation?postNo=${progressNationList.postNo}'">
+						<tr onclick="location.href='oneProgressNation?postNo=${progressNationList.postNo}'&viewerNo=${loginUser.userNo}">
 							<td>
 								${progressNationList.postNum }
 								<input type="hidden" name="postNo" value="${progressNationList.postNo }">

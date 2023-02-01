@@ -35,4 +35,8 @@ public class UserService{
 	public WritingVo oneNationPost(int postNo) {
 		return userMapper.oneNationPost(postNo);
 	}
+
+	public int procView(int postNo, int viewerNo) {
+		return userMapper.procView(postNo,viewerNo);
+	}
 }

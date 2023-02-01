@@ -1,5 +1,7 @@
 package com.example.test.login.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,12 @@ public class ShopperController {
 		return "login";
 	}
 	
+	@GetMapping("/main")
+	public String main(Model model) {
+		model.addAttribute("progressNationList",userService.progressNation());
+		return "main";
+	}
+	
 	@RequestMapping("/doLogin") 
 	public String login(@ModelAttribute UserInfoVo userInfoVo, HttpSession session, Model model) {
 		String encodedPassword = userInfoVo.getUserPw(); 
@@ -60,8 +68,9 @@ public class ShopperController {
 	} 
 	
 	@GetMapping("oneProgressNation")
-    public String oneProgressNation(Model model, int postNo) {
+    public String oneProgressNation(Model model, int postNo, int viewerNo) {
     	model.addAttribute("oneProgressNation",userService.oneNationPost(postNo));
+    	int result = userService.procView(postNo, viewerNo);
     	return "sub";
     }
 	
