@@ -11,38 +11,37 @@
 <script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
-	<table>
-				<thead>
-					<tr>
-						<th>번호</th>
-						<th>작성자</th>
-						<th>청원분야</th>
-						<th>청원제목</th>
-						<th>동의기간</th>
-						<th>동의수</th>
-						<th>조회수</th>
+		<table>
+			<thead>
+				<tr>
+					<th>번호${loginUser.userNo}</th>
+					<th>작성자</th>
+					<th>청원분야</th>
+					<th>청원제목</th>
+					<th>동의기간</th>
+					<th>조회수</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="progressNationList" items="${progressNationList }">
+					<tr onclick="location.href='oneProgressNation?postNo=${progressNationList.postNo}&viewerNo=${loginUser.userNo}'">
+						<td>
+							${progressNationList.postNum }
+							<input type="hidden" name="postNo" value="${progressNationList.postNo }">
+							<input type="hidden" name="viewerNo" value="${loginUser.userNo}">
+						</td>
+						<td>${progressNationList.writer }</td>
+						<td>${progressNationList.requestType }</td>
+						<td>${progressNationList.requestTitle }</td>
+						<td>
+							<fmt:formatDate value="${progressNationList.reportingDate }" pattern="yyyy-MM-dd"/>
+							 ~ ${fn:split(progressNationList.agreeTerm,' ')[0]}
+						</td>
+						<td>${progressNationList.view}</td>
 					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="progressNationList" items="${progressNationList }">
-						<tr onclick="location.href='oneProgressNation?postNo=${progressNationList.postNo}'&viewerNo=${loginUser.userNo}">
-							<td>
-								${progressNationList.postNum }
-								<input type="hidden" name="postNo" value="${progressNationList.postNo }">
-							</td>
-							<td>${progressNationList.writer }</td>
-							<td>${progressNationList.requestType }</td>
-							<td>${progressNationList.requestTitle }</td>
-							<td>
-								<fmt:formatDate value="${progressNationList.reportingDate }" pattern="yyyy-MM-dd"/>
-								 ~ ${fn:split(progressNationList.agreeTerm,' ')[0]}
-							</td>
-							<td>${progressNationList.agreeCount}</td>
-							<td>${progressNationList.view}</td>
-						</tr>
-		    		</c:forEach>
-				</tbody>
-			</table>
-			<input type="button" value="logout" id="logout">
+	    		</c:forEach>
+			</tbody>
+		</table>
+		<input type="button" value="로그아웃"onclick="location.href='login2'">
 </body>
 </html>

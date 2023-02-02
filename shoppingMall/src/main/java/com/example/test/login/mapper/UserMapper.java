@@ -3,6 +3,7 @@ package com.example.test.login.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.example.test.login.domain.UserInfoVo;
 import com.example.test.login.domain.WritingVo;
@@ -15,11 +16,11 @@ public interface UserMapper {
 	
 	String findPassword(String userId);
 	
-	UserInfoVo login(String userId, String userPw);
+	UserInfoVo login(String userId);
 	
 	public List<WritingVo> progressNation();
 	
 	public WritingVo oneNationPost(int postNo);
 
-	public int procView(int postNo, int viewerNo);
+	public String procView(@Param("postNo")int postNo,@Param("viewerNo") int viewerNo);
 }

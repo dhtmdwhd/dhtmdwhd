@@ -54,10 +54,5 @@ integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WT
 		</table>
 	</form>
 		<button onclick="location.href='main'" class="btn btn-success">목록보기</button>
-		<c:choose>
-			<c:when test="${not empty loginUser.userAuth}">
-				<button onclick="location.href='agree?postNo=${oneProgressNation.postNo }'" class="btn btn-success">동의하기</button>
-			</c:when>
-		</c:choose>
 </body>
 </html>

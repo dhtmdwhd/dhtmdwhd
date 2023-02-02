@@ -1,7 +1,6 @@
 package com.example.test.login.controller;
 
-import java.util.Map;
-
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,37 +39,48 @@ public class ShopperController {
 	}
 	
 	@RequestMapping("/doLogin") 
-	public String login(@ModelAttribute UserInfoVo userInfoVo, HttpSession session, Model model) {
+	public String login(@ModelAttribute UserInfoVo userInfoVo, Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
 		String encodedPassword = userInfoVo.getUserPw(); 
 		String dbData = userService.findPassword(userInfoVo.getUserId()); 
 		
-		UserInfoVo loginUser = userService.login(userInfoVo.getUserId(), userInfoVo.getUserPw());
-		
+		UserInfoVo loginUser = userService.login(userInfoVo.getUserId());
+		System.out.println(userInfoVo);
 		int cnt = 0;
 		
 		if(passwordEncoder.matches(encodedPassword, dbData)){
-			System.out.println("-----------------");
 			cnt = 1;
 		}else {
 			cnt = 0;
-			System.out.println("-+++++++++++++++++++++++++++++-");
 		}
 		
-		if(cnt == 1) {
-			session.setAttribute("loginUser", loginUser);
-			session.setMaxInactiveInterval(3600);
-			model.addAttribute("progressNationList",userService.progressNation());
-			return "main";
-		}else {
+		if(cnt != 1) {
 			session.setAttribute("loginUser", null);
+			session.setMaxInactiveInterval(3600);
+			System.out.println("-----------------");
 			return "login2";
+		}else {
+			session.setAttribute("loginUser", loginUser);
+			model.addAttribute("progressNationList",userService.progressNation());
+			System.out.println("-+++++++++++++++++++++++++++++-");
+			return "main";
 		}
 	} 
+	
+	@RequestMapping("/logout")
+	public String logout(HttpServletRequest request) {
+		HttpSession session = request.getSession(false);
+		if(session != null) {
+			session.invalidate();
+		}
+		return "login2";
+	}
 	
 	@GetMapping("oneProgressNation")
     public String oneProgressNation(Model model, int postNo, int viewerNo) {
     	model.addAttribute("oneProgressNation",userService.oneNationPost(postNo));
-    	int result = userService.procView(postNo, viewerNo);
+    	System.out.println(postNo + viewerNo);
+    	userService.procView(postNo, viewerNo);
     	return "sub";
     }
 	

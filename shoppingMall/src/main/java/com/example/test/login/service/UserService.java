@@ -21,8 +21,8 @@ public class UserService{
     	userMapper.getUserInfo(userInfoVo);
 		return null;
 	}
-	public UserInfoVo login(String userId, String userPw){
-		return userMapper.login(userId, userPw);
+	public UserInfoVo login(String userId){
+		return userMapper.login(userId);
     }
 	public String findPassword(String userId){
 		return userMapper.findPassword(userId);
@@ -36,7 +36,7 @@ public class UserService{
 		return userMapper.oneNationPost(postNo);
 	}
 
-	public int procView(int postNo, int viewerNo) {
+	public String procView(int postNo, int viewerNo) {
 		return userMapper.procView(postNo,viewerNo);
 	}
 }

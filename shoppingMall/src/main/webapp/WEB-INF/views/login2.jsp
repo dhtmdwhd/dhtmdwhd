@@ -3,11 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
+<style type="text/css">
+	#all{
+		
+	}
+</style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-	alert("아이디와 비밀번호가 일치하지 않습니다. 다시 입력해 주세요")
-</script>
 </head>
 <body>
 	<div id="all">
@@ -18,7 +21,7 @@
 						아이디 : 
 					</th>
 					<td>
-						<input type="text" id="userId" class="typing">
+						<input type="text" id="userId" class="typing" name="userId">
 					</td>
 					<td rowspan="2">
 						<input type="button" value="로그인" id="doLogin">
@@ -29,12 +32,12 @@
 						비밀번호 : 
 					</th>
 					<td>
-						<input type="password" id="userPw" class="typing">
+						<input type="password" id="userPw" class="typing" name="userPw">
 					</td>
 				</tr>
 				<tr>
 					<td colspan="3">
-						<input type="button" value="회원가입" id="newUser">
+						<input type="button" value="회원가입" id="newUser" onclick="location.href='register'">
 					</td>
 				</tr>
 			</table>
@@ -55,6 +58,6 @@
 				loginForm.submit();
 			}
 		})
-	})
+	})	
 </script>
 </html>
