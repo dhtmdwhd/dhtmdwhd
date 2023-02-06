@@ -38,7 +38,6 @@ integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WT
 				<tr>
 					<th>청원분야</th>
 					<td>${oneProgressNation.requestType }</td>
-					<th>동의수(${oneProgressNation.agreeCount })</th>
 					<td>
 						<div class="progress">
 						  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="${oneProgressNation.agreeCount }" aria-valuemin="0" aria-valuemax="100" style="width: ${oneProgressNation.agreeCount }%">
@@ -53,6 +52,6 @@ integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WT
 			</tbody>
 		</table>
 	</form>
-		<button onclick="location.href='main'" class="btn btn-success">목록보기</button>
+	<button onclick="location.href='main'" class="btn btn-success">목록보기</button>
 </body>
 </html>

@@ -43,5 +43,6 @@
 			</tbody>
 		</table>
 		<input type="button" value="로그아웃"onclick="location.href='login2'">
+		<a href="shopItem">쇼핑하러가기</a>
 </body>
 </html>

@@ -98,4 +98,10 @@ public class ShopperController {
 		 userService.getUserInfo(userInfoVo);
 		 return "login";
 	 } 
+
+	 @GetMapping("shopItem")
+	 public String shop(Model model) {
+		 model.addAttribute("shopItem",userService.shopItem());
+		 return "shop";
+	 }
 }

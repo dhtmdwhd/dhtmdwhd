@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.example.test.login.domain.UserInfoVo;
 import com.example.test.login.domain.WritingVo;
+import com.example.test.login.domain.shopItemVo;
 
 
 @Mapper
@@ -23,4 +24,6 @@ public interface UserMapper {
 	public WritingVo oneNationPost(int postNo);
 
 	public String procView(@Param("postNo")int postNo,@Param("viewerNo") int viewerNo);
+
+	public List<shopItemVo> shopItem();
 }

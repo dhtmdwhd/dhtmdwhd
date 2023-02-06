@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.test.login.domain.UserInfoVo;
 import com.example.test.login.domain.WritingVo;
+import com.example.test.login.domain.shopItemVo;
 import com.example.test.login.mapper.UserMapper;
 
 import lombok.RequiredArgsConstructor;
@@ -38,5 +39,9 @@ public class UserService{
 
 	public String procView(int postNo, int viewerNo) {
 		return userMapper.procView(postNo,viewerNo);
+	}
+
+	public List<shopItemVo> shopItem() {
+		return userMapper.shopItem();
 	}
 }

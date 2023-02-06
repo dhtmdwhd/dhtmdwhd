@@ -32,4 +32,8 @@
             )}
         ]]>
 	</select>
+
+    <select id="shopItem" resultType="com.example.test.login.domain.shopItemVo">
+        SELECT * FROM shoppinItem
+    </select>
 </mapper>

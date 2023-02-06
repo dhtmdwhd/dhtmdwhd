@@ -42,6 +42,7 @@
 				</tr>
 			</table>
 		</form>
+		<img src="imgFile\image.png">
 	</div>
 </body>
 <script type="text/javascript">
