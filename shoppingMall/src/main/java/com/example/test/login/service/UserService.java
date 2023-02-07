@@ -44,4 +44,8 @@ public class UserService{
 	public List<shopItemVo> shopItem() {
 		return userMapper.shopItem();
 	}
+	
+	public shopItemVo oneShopItem(int itemNo) {
+		return userMapper.oneShopItem(itemNo);
+	}
 }

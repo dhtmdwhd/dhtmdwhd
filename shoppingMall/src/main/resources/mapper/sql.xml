@@ -36,4 +36,8 @@
     <select id="shopItem" resultType="com.example.test.login.domain.shopItemVo">
         SELECT * FROM shoppinItem
     </select>
+
+	<select id="oneShopItem" resultType="com.example.test.login.domain.shopItemVo">
+		select * from shoppinItem where itemNo = #{itemNo}
+	</select>
 </mapper>

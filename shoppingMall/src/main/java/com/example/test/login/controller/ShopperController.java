@@ -82,7 +82,7 @@ public class ShopperController {
     	System.out.println(postNo + viewerNo);
     	userService.procView(postNo, viewerNo);
     	return "sub";
-    }
+    } 
 	
 	@RequestMapping("/register")
     public String RegisterPage(){
@@ -103,5 +103,11 @@ public class ShopperController {
 	 public String shop(Model model) {
 		 model.addAttribute("shopItem",userService.shopItem());
 		 return "shop";
+	 }
+
+	 @GetMapping("oneItem")
+	 public String oneShopItem(Model model, int itemNo) {
+		 model.addAttribute("oneShopItem",userService.oneShopItem(itemNo));
+		 return "oneItem";
 	 }
 }

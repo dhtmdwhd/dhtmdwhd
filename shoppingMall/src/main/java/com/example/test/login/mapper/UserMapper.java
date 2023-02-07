@@ -26,4 +26,6 @@ public interface UserMapper {
 	public String procView(@Param("postNo")int postNo,@Param("viewerNo") int viewerNo);
 
 	public List<shopItemVo> shopItem();
+
+	public shopItemVo oneShopItem(int itemNo);
 }
