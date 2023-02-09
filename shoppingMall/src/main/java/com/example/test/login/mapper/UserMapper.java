@@ -28,4 +28,6 @@ public interface UserMapper {
 	public List<shopItemVo> shopItem();
 
 	public shopItemVo oneShopItem(int itemNo);
+
+	public shopItemVo dibItem(@Param("itemNo")int itemNo,@Param("userNo")int userNo);
 }

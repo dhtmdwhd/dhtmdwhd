@@ -40,4 +40,8 @@
 	<select id="oneShopItem" resultType="com.example.test.login.domain.shopItemVo">
 		select * from shoppinItem where itemNo = #{itemNo}
 	</select>
+
+	<select id="dibItem" resultType="com.example.test.login.domain.shopItemVo">
+		select * from userDibs where itemNo = #{itemNo} and userNo = #{userNo}
+	</select>
 </mapper>

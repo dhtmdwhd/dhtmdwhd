@@ -48,4 +48,8 @@ public class UserService{
 	public shopItemVo oneShopItem(int itemNo) {
 		return userMapper.oneShopItem(itemNo);
 	}
+
+	public shopItemVo dibItem(int itemNo, int userNo) {
+		return userMapper.dibItem(itemNo, userNo);
+	}
 }

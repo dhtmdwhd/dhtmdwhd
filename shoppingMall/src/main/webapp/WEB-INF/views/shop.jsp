@@ -31,7 +31,7 @@
 	<ul>
 		<c:forEach var="shopItem" items="${shopItem}">
 			<li class="list">
-				<a href="oneItem?itemNo=${shopItem.itemNo}">
+				<a href="oneItem?itemNo=${shopItem.itemNo}&userNo=${loginUser.userNo}">
 					<dl>
 						<dt>
 							<img src="${shopItem.itemImageFilePath}" class="img"> 

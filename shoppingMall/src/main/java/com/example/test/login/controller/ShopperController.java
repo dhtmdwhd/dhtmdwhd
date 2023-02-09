@@ -106,8 +106,9 @@ public class ShopperController {
 	 }
 
 	 @GetMapping("oneItem")
-	 public String oneShopItem(Model model, int itemNo) {
+	 public String oneShopItem(Model model, int itemNo ,int userNo) {
 		 model.addAttribute("oneShopItem",userService.oneShopItem(itemNo));
+		 model.addAttribute("dibItem",userService.dibItem(itemNo, userNo));
 		 return "oneItem";
 	 }
 }

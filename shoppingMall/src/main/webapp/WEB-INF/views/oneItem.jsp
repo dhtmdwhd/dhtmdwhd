@@ -1,10 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	.button{
+		width: 150px;
+		height: 50px;
+		font-size: large;
+		align-content: center; 
+	}
+</style>
 </head>
 <body>
 	<form action="passPost" method="get">
@@ -55,6 +64,21 @@
 					</th>
 					<td>
 						${oneShopItem.itemExplanation}
+					</td>
+				</tr>
+				<tr>
+					<c:if test="${empty dibItem}">
+						<td>
+							<input type="button" class="button" value="찜♡"onclick="location.href='dibsOn'">
+						</td>
+					</c:if>
+					<c:if test="${not empty dibItem}">
+						<td>
+							<input type="button" class="button" value="찜❤️"onclick="location.href='dibOff'">
+						</td>
+					</c:if>	
+					<td>
+						장바구니
 					</td>
 				</tr>
 			</tbody>	
