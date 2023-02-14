@@ -52,4 +52,12 @@ public class UserService{
 	public shopItemVo dibItem(int itemNo, int userNo) {
 		return userMapper.dibItem(itemNo, userNo);
 	}
+
+	public int dibOn(int itemNo, int userNo) {
+		return userMapper.dibOn(itemNo, userNo);
+	}
+
+	public int dibOff(int itemNo, int userNo) {
+		return userMapper.dibOff(itemNo, userNo);
+	}
 }

@@ -44,4 +44,12 @@
 	<select id="dibItem" resultType="com.example.test.login.domain.shopItemVo">
 		select * from userDibs where itemNo = #{itemNo} and userNo = #{userNo}
 	</select>
+
+	<insert id="dibOn" parameterType="int">
+		INSERT INTO userDibs  VALUES(#{userNo}, #{itemNo})
+	</insert>
+
+	<delete id="dibOff" parameterType="int">
+		DELETE FROM userDibs where itemNo = #{itemNo} and userNo = #{userNo}
+	</delete>
 </mapper>

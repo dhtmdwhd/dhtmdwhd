@@ -30,4 +30,8 @@ public interface UserMapper {
 	public shopItemVo oneShopItem(int itemNo);
 
 	public shopItemVo dibItem(@Param("itemNo")int itemNo,@Param("userNo")int userNo);
+	
+	public int dibOn(@Param("itemNo")int itemNo,@Param("userNo")int userNo);
+	
+	public int dibOff(@Param("itemNo")int itemNo,@Param("userNo")int userNo);
 }

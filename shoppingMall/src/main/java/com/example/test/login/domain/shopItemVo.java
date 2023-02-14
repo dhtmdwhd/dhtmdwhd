@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class shopItemVo {
 	private int itemNo;
+	private int userNo;
 	private String itemName;
 	private String itemKind;
 	private int itemScore;

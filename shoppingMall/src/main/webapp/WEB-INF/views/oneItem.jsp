@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 <style type="text/css">
 	.button{
 		width: 150px;
@@ -69,20 +70,71 @@
 				<tr>
 					<c:if test="${empty dibItem}">
 						<td>
-							<input type="button" class="button" value="찜♡"onclick="location.href='dibsOn'">
+							<input type="button" class="button" value="찜♡" id="zz">
 						</td>
 					</c:if>
 					<c:if test="${not empty dibItem}">
 						<td>
-							<input type="button" class="button" value="찜❤️"onclick="location.href='dibOff'">
+							<input type="button" class="button" value="찜❤️" id="aa">
 						</td>
 					</c:if>	
 					<td>
 						장바구니
+						<input type="hidden" id="itemNo" name="itemNo" value="${oneShopItem.itemNo}">
+						<input type="hidden" id="userNo" name="userNo" value="${loginUser.userNo}">
 					</td>
 				</tr>
 			</tbody>	
 		</table>
+		<a href="shopItem">목록가기</a>
 	</form>
 </body>
+<script type="text/javascript">
+
+	$("#zz").click(function(){
+		var itemNo1= $("#itemNo").val();
+		var userNo1= $("#userNo").val();
+		var result = confirm("찜 하시겠습니까?");
+		if(result){
+			$.ajax({
+	            type: 'GET',
+	            url: 'dibsOn?itemNo=${oneShopItem.itemNo}&userNo=${loginUser.userNo}',
+	            data:{
+	            	itemNo : itemNo1,
+	            	userNo : userNo1
+	            },
+	            dataType : "json",
+	            contentType: "application/json; charset=UTF-8",
+	            success: function(data) {
+						location.reload();
+	            }
+	        });
+		}else{
+			location.reload();
+		}
+	});
+
+	$("#aa").click(function(){
+		var itemNo1= $("#itemNo").val();
+		var userNo1= $("#userNo").val();
+		var result = confirm("찜 취소 하시겠습니까?");
+		if(result){
+			$.ajax({
+	            type: 'GET',
+            url: 'dibOff?itemNo=${oneShopItem.itemNo}&userNo=${loginUser.userNo}',
+            data:{
+            	itemNo : itemNo1,
+            	userNo : userNo1
+            },
+            dataType : "json",
+            contentType: "application/json; charset=UTF-8",
+            success: function(data) {
+					location.reload();
+            }
+		        });
+			}else{
+				location.reload();
+			}
+		});
+</script>
 </html>

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.test.login.domain.UserInfoVo;
 import com.example.test.login.service.UserService;
@@ -110,5 +112,37 @@ public class ShopperController {
 		 model.addAttribute("oneShopItem",userService.oneShopItem(itemNo));
 		 model.addAttribute("dibItem",userService.dibItem(itemNo, userNo));
 		 return "oneItem";
+	 }
+	 
+	 @ResponseBody
+	 @RequestMapping(value="dibsOn", method=RequestMethod.GET)
+	 public int dibsOn(Model model, int itemNo ,int userNo) {
+		 int result = userService.dibOn(itemNo, userNo);
+		 if(result>0) {
+			 model.addAttribute("oneShopItem",userService.oneShopItem(itemNo));
+			 model.addAttribute("dibItem",userService.dibItem(itemNo, userNo));
+			 return result;
+		 }else {
+			 System.out.println("망했다");
+			 model.addAttribute("oneShopItem",userService.oneShopItem(itemNo));
+			 model.addAttribute("dibItem",userService.dibItem(itemNo, userNo));
+			 return result;
+		 }
+	 }
+	 
+	 @ResponseBody
+	 @RequestMapping(value="dibOff", method=RequestMethod.GET)
+	 public int dibOff(Model model, int itemNo ,int userNo){
+		 int result = userService.dibOff(itemNo, userNo);
+		 if(result>0) {
+			 model.addAttribute("oneShopItem",userService.oneShopItem(itemNo));
+			 model.addAttribute("dibItem",userService.dibItem(itemNo, userNo));
+			 return result;
+		 }else {
+			 System.out.println("망했다");
+			 model.addAttribute("oneShopItem",userService.oneShopItem(itemNo));
+			 model.addAttribute("dibItem",userService.dibItem(itemNo, userNo));
+			 return result;
+		 }
 	 }
 }
